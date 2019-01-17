@@ -1,0 +1,49 @@
+exercise 5
+slide1
+#1
+select guestname, guestaddress from guest 
+              join booking on guest.guestno = booking.guestno
+              join hotel on booking.hotelno = hotel.hotelno
+     where hotel.city='London' order by guestname;
+#2
+select * from room
+	where price < 40 
+	AND (type = 'double' or type = 'family')
+	order by price ASC;
+#3
+select * from booking where dateto is null;
+
+#4
+select avg(price) from room;
+#5 
+select sum(price) from room where type ='double';
+#6
+select count(distinct(guestno)) from booking where datefrom like "%-09-%"; 
+
+#slide2
+#1
+select price, type from room 
+	join hotel on room.hotelno = hotel.hotelno 
+	where hotel.hotelname = "The Tower Hotel";
+#2
+select guestname from guest 
+	join booking on guest.guestno = booking.guestno
+	join hotel on booking.hotelno = hotel.hotelno
+	where booking.datefrom <= NOW() and booking.dateto >= NOW() 
+	and hotel.hotelname ="The Tower Hotel";
+#3
+select * from room 
+	join booking on room.hotelno = booking.hotelno
+	join hotel on booking.hotelno = hotel.hotelno
+	join guest on booking.guestno = guest.guestno
+	where hotel.hotelname = "The Tower Hotel" and datefrom <= now() and dateto >= now();
+#4
+select sum(price) from room
+	join booking on room.hotelno = booking.hotelno 
+	join hotel on booking.hotelno = hotel.hotelno
+	where hotel.hotelname = "The Tower Hotel" and datefrom <= now() and dateto >= now();
+#5
+select * from room
+	join booking on room.hotelno = booking.hotelno
+	join hotel on booking.hotelno = hotel.hotelno 
+	where hotel.hotelname = "The Tower Hotel" ;
