@@ -46,4 +46,26 @@ select sum(price) from room
 select * from room
 	join booking on room.hotelno = booking.hotelno
 	join hotel on booking.hotelno = hotel.hotelno 
-	where hotel.hotelname = "The Tower Hotel" ;
+	where hotel.hotelname = "The Tower Hotel" and datefrom >= now() and dateto <= now();
+#6
+select * from room left 
+	join hotel on room.hotelno = hotel.hotelno
+	where hotel.hotelname="The Tower Hotel" and
+	roomno not in (select roomno from booking join hotel on booking.hotelno=hotelno 
+			where datefrom <= now() and dateto >= now());
+#7
+select hotel.hotelname, count(*) from room
+	join hotel on room.hotelno = hotel.hotelno 
+	where hotel.city ="London"
+	group by hotel.hotelname;
+#8
+SELECT count(room.roomno), hotel.hotelname, room.type FROM room 
+    JOIN booking  ON room.hotelno = booking.hotelno
+    JOIN hotel ON booking.hotelno = hotel.hotelno
+    WHERE hotel.city = "London"
+    GROUP BY hotel.hotelname AND room.type;
+NOG NIET AF
+#9
+
+	
+
