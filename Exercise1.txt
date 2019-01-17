@@ -1,0 +1,6 @@
+git init
+create text file "readme"
+git add readme.txt
+git commit -m "first commit"
+git remote add origin "https://github.com/SDupont97/oefening_laatse_les.git"
+git push -u origin master
