@@ -1,0 +1,15 @@
+UNF:DB(StaffNo, dentistname, patientNo, patientName, appointment, surgeryNo)
+1NF:DB(staffNO, apptDate, apptTime, dentistname, patientNo, patientName, SurgeryNO)
+    keys(staffNO, apptDate, apptTime)
+repeating group is appt, want in  appt heb je 2 waarden in 1 cel
+keys zijn candidate keys
+2NF: appoint(staffNO, apptdate, apptTime, patientNO, patientName)
+     surgery(staffNO, apptDate, surgeryNO)
+     dentist(staffNO, denstisName)
+   keys(staffNO, apptDate, apptTime - staffNo, apptDate - StaffNO)
+3NF: dentist(staffNO, denstisName)
+     surgery(staffNO, apptDate, surgeryNO)
+     appoint(staffNO, apptdate, apptTime, PatientNO)
+     patient(PatientNO, patientName)
+    keys(staffNO - staffNO, apptdate - patientNO - staffNO, apptdate, apptTime)
+BCNF: 3NF
