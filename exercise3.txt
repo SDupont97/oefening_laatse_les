@@ -1,0 +1,17 @@
+UNF: db( PatNO, name, bednr, wardnr, wardname, drugnr, drname, description, dosage, method, upd, start, finish)
+
+1NF: db( PatNO, name, bednr, wardnr, wardname, drugnr,drname, description, dosage, method, upd, start, finish)
+    keys(PatNO, DrugNR, start)
+
+2NF: patient(patnum, name, bednum, wardname, wardnum, drugno)
+     drug (drugNO, namedrug, descript, dosage)
+     treatment(patnum, wardnum, drugNO, startdate)
+     keys (patnum, drugno - drugno - patnum,drugnum, startdate)
+
+3NF:patient(patnumn, name, drugno)
+    location(patnum, bednum, wardname, wardnumb)
+    drug(drugno, namedrug, descript, dosage)
+    treatment(patnum, startdate, drugno, upd, enddate)
+  keys(patnum, drugnno - patnum - drugno - patno, drugno, startdate)
+
+BCNF <- 3NF 
